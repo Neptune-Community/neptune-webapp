@@ -32,12 +32,32 @@ jobs:
           node-version: ${{ matrix.node-version }}
           cache: "pnpm"
 
+      - name: Cache Next.js build
+        uses: actions/cache@v4
+        with:
+          path: |
+            .next/cache
+            .next/static
+          key: ${{ runner.os }}-nextjs-${{ hashFiles('**/pnpm-lock.yaml') }}-${{ hashFiles('**/*.ts', '**/*.tsx', '**/*.js', '**/*.jsx') }}
+          restore-keys: |
+            ${{ runner.os }}-nextjs-${{ hashFiles('**/pnpm-lock.yaml') }}-
+
+      - name: Validate environment variables
+        run: |
+          echo "Validating required environment variables..."
+          if [ -z "$NODE_ENV" ]; then
+            echo "NODE_ENV is required"
+            exit 1
+          fi
+          echo "Environment validation passed"
+
       - name: Install dependencies (mirror Vercel's frozen-lockfile)
         run: pnpm install --frozen-lockfile
         env:
           # Mirror Vercel's environment
           NODE_ENV: production
           CI: true
+          NEXT_TELEMETRY_DISABLED: 1 # Disable telemetry like Vercel
 
       - name: Run linting (Vercel runs this)
         run: pnpm lint
@@ -92,6 +112,18 @@ jobs:
             .next/
             public/
           retention-days: 7
+
+      - name: Deployment Status Notification
+        if: always()
+        run: |
+          if [ "${{ job.status }}" == "success" ]; then
+            echo "✅ Build successful for Node.js ${{ matrix.node-version }}"
+            echo "🚀 Ready for Vercel deployment"
+          else
+            echo "❌ Build failed for Node.js ${{ matrix.node-version }}"
+            echo "🔍 Check logs for details"
+            exit 1
+          fi
 
   # Separate job for E2E tests against the built app
   e2e-vercel-build:

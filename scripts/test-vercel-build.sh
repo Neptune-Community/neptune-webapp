@@ -48,6 +48,14 @@ export CI=true
 
 print_status "Environment variables set (NODE_ENV=production, CI=true)"
 
+# Validate environment
+echo "🔍 Validating environment..."
+if [ -z "$NODE_ENV" ]; then
+    print_error "NODE_ENV is required"
+    exit 1
+fi
+print_status "Environment validation passed"
+
 # Step 1: Install dependencies (mirror Vercel's frozen-lockfile)
 echo ""
 echo "📦 Installing dependencies..."
