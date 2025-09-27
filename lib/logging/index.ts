@@ -20,36 +20,37 @@ import winston from "winston";
 
 // Create logger instance
 export const logger = winston.createLogger({
-  level: process.env.LOG_LEVEL || "info",
-  format: winston.format.combine(
-    winston.format.timestamp(),
-    winston.format.errors({ stack: true }),
-    winston.format.json(),
-  ),
-  defaultMeta: { service: "neptune-webapp" },
-  transports: [
-    new winston.transports.Console({
-      format: winston.format.combine(
-        winston.format.colorize(),
-        winston.format.simple(),
-      ),
-    }),
-  ],
+    level: process.env.LOG_LEVEL || "info",
+    format: winston.format.combine(
+        winston.format.timestamp(),
+        winston.format.errors({ stack: true }),
+        winston.format.json()
+    ),
+    defaultMeta: { service: "neptune-webapp" },
+    transports: [
+        new winston.transports.Console({
+            format: winston.format.combine(
+                winston.format.colorize(),
+                winston.format.simple()
+            ),
+        }),
+    ],
 });
 
-// Add file transport in production
-if (process.env.NODE_ENV === "production") {
-  logger.add(
-    new winston.transports.File({
-      filename: "logs/error.log",
-      level: "error",
-    }),
-  );
-  logger.add(
-    new winston.transports.File({
-      filename: "logs/combined.log",
-    }),
-  );
+// Add file transport only in non-serverless environments
+// Vercel serverless functions don't support file system writes
+if (process.env.NODE_ENV === "production" && !process.env.VERCEL) {
+    logger.add(
+        new winston.transports.File({
+            filename: "logs/error.log",
+            level: "error",
+        })
+    );
+    logger.add(
+        new winston.transports.File({
+            filename: "logs/combined.log",
+        })
+    );
 }
 
 export default logger;
