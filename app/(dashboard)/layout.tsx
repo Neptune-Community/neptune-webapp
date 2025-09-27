@@ -1,6 +1,6 @@
 import { ReactNode } from "react";
 import { Sidebar } from "@/components/layout/sidebar";
-import { Header } from "@/components/layout/header";
+import Header from "@/components/layout/header";
 
 /**
  * Dashboard Layout

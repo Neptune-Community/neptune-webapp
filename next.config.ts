@@ -92,10 +92,18 @@ const nextConfig: NextConfig = {
     contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
   },
 
-  // Experimental security features
+  // Server external packages (moved from experimental in Next.js 15)
+  serverExternalPackages: [],
+
+  // Experimental features
   experimental: {
     // Enable server components logging for security monitoring
-    serverComponentsExternalPackages: [],
+    logging: {
+      level: "verbose",
+      fetches: {
+        fullUrl: true,
+      },
+    },
   },
 
   // Redirects for security (remove trailing slashes, enforce HTTPS)
