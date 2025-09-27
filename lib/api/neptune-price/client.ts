@@ -105,16 +105,44 @@ export class NeptunePriceClient {
      * Fetches Neptune price from SafeTrade (fallback)
      */
     private async fetchFromSafeTrade(): Promise<NeptunePriceData> {
-        const url = "https://safe.trade/api/v2/trade/public/currencies/npt";
+        // Try multiple possible SafeTrade API endpoints
+        const possibleUrls = [
+            "https://safetrade.com/api/v2/trade/public/currencies/npt",
+            "https://safetrade.com/api/v1/ticker/npt_usdt",
+            "https://safetrade.com/api/v1/ticker/npt",
+        ];
 
-        const response = await this.request<Record<string, unknown>>(url);
+        let response: Record<string, unknown> | null = null;
+        let lastError: Error | null = null;
 
-        if (!response || !response.price) {
-            throw new Error("SafeTrade API returned invalid response");
+        for (const url of possibleUrls) {
+            try {
+                response = await this.request<Record<string, unknown>>(url);
+                if (
+                    response &&
+                    (response.price || response.last_price || response.last)
+                ) {
+                    break;
+                }
+            } catch (error) {
+                lastError = error as Error;
+                console.warn(`SafeTrade API endpoint failed: ${url}`, error);
+            }
+        }
+
+        if (
+            !response ||
+            (!response.price && !response.last_price && !response.last)
+        ) {
+            throw new Error(
+                `SafeTrade API returned invalid response. Last error: ${lastError?.message}`
+            );
         }
 
         // SafeTrade only provides current price, so we'll use mock data for other fields
-        const price = parseFloat(response.price as string);
+        const price = parseFloat(
+            (response.price || response.last_price || response.last) as string
+        );
 
         return {
             symbol: (response.name as string) || "NEPTUNE",
