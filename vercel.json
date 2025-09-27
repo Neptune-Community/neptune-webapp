@@ -1,0 +1,31 @@
+{
+  "headers": [
+    {
+      "source": "/assets/fonts/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        },
+        {
+          "key": "Access-Control-Allow-Origin",
+          "value": "*"
+        }
+      ]
+    },
+    {
+      "source": "/opengraph-image",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=3600, s-maxage=86400"
+        }
+      ]
+    }
+  ],
+  "functions": {
+    "app/opengraph-image.tsx": {
+      "maxDuration": 10
+    }
+  }
+}
