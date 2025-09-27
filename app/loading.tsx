@@ -21,8 +21,8 @@ export default function Loading() {
 
         {/* Content skeleton */}
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-          {Array.from({ length: 6 }).map((_, i) => (
-            <div key={i} className="space-y-3">
+          {Array.from({ length: 6 }, (_, i) => (
+            <div key={`skeleton-card-${i}-static`} className="space-y-3">
               <Skeleton className="h-48 w-full" />
               <div className="space-y-2">
                 <Skeleton className="h-4 w-full" />

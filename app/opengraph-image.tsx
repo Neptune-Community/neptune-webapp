@@ -32,18 +32,17 @@ export default async function Image() {
       "./public/neptune.svg",
       "./neptune.svg",
     ];
-    
+
     let logoData = null;
     for (const path of possiblePaths) {
       try {
         logoData = await readFile(path);
         break;
-      } catch (pathError) {
+      } catch (_pathError) {
         // Try next path
-        continue;
       }
     }
-    
+
     if (logoData) {
       logoSrc = `data:image/svg+xml;base64,${logoData.toString("base64")}`;
     } else {
@@ -60,7 +59,7 @@ export default async function Image() {
     customFont = await readFile(
       join(process.cwd(), "assets/fonts/BauhausBuglerBoldW00-Bold.ttf"),
     );
-  } catch (error) {
+  } catch (_error) {
     // Font not found, will use system fonts
   }
 
@@ -96,13 +95,15 @@ export default async function Image() {
               marginBottom: "30px",
             }}
           >
-            <img
-              src={logoSrc}
-              alt="Neptune Logo"
-              width="80"
-              height="80"
+            <div
               style={{
+                width: "80px",
+                height: "80px",
                 marginRight: "20px",
+                backgroundImage: `url(${logoSrc})`,
+                backgroundSize: "contain",
+                backgroundRepeat: "no-repeat",
+                backgroundPosition: "center",
                 filter: "brightness(0) invert(1)", // Make logo white
               }}
             />
@@ -139,7 +140,7 @@ export default async function Image() {
             </div>
           </div>
         )}
-        
+
         {/* Fallback title if no logo */}
         {!logoSrc && (
           <div

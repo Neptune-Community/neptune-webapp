@@ -13,7 +13,7 @@ export async function loadCustomFont() {
       join(process.cwd(), "assets/fonts/BauhausBuglerBoldW00-Bold.ttf"),
     );
     return fontData;
-  } catch (error) {
+  } catch (_error) {
     console.warn("Custom font not found, falling back to system fonts");
     return null;
   }

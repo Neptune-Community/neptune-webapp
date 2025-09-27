@@ -17,16 +17,16 @@
  */
 
 export interface TRPCContext {
-  session?: any;
+  session?: unknown;
   req: Request;
   res: Response;
-  db: any; // Database connection
-  logger: any; // Logger instance
+  db: unknown; // Database connection
+  logger: unknown; // Logger instance
 }
 
 export interface TRPCProcedure {
-  input?: any;
-  output?: any;
+  input?: unknown;
+  output?: unknown;
   meta?: TRPCMeta;
 }
 
@@ -34,17 +34,17 @@ export interface TRPCMeta {
   description?: string;
   tags?: string[];
   deprecated?: boolean;
-  examples?: any[];
+  examples?: unknown[];
 }
 
 export interface TRPCError extends Error {
   code: string;
   httpStatus: number;
   cause?: Error;
-  data?: Record<string, any>;
+  data?: Record<string, unknown>;
 }
 
-export interface TRPCResult<T = any> {
+export interface TRPCResult<T = unknown> {
   data?: T;
   error?: TRPCError;
   meta?: {
@@ -54,7 +54,7 @@ export interface TRPCResult<T = any> {
   };
 }
 
-export interface TRPCSubscription<T = any> {
+export interface TRPCSubscription<T = unknown> {
   data: T;
   type: "data" | "error" | "complete";
 }
@@ -63,21 +63,21 @@ export interface TRPCBatchRequest {
   requests: Array<{
     id: string;
     method: string;
-    params: any;
+    params: unknown;
   }>;
 }
 
 export interface TRPCBatchResponse {
   responses: Array<{
     id: string;
-    result?: any;
+    result?: unknown;
     error?: TRPCError;
   }>;
 }
 
 export interface TRPCMiddleware {
   name: string;
-  execute: (opts: any) => Promise<any>;
+  execute: (opts: unknown) => Promise<unknown>;
 }
 
 export interface TRPCRouter {
@@ -87,8 +87,8 @@ export interface TRPCRouter {
 export interface TRPCClientOptions {
   url: string;
   headers?: Record<string, string>;
-  transformer?: any;
-  links?: any[];
+  transformer?: unknown;
+  links?: unknown[];
 }
 
 export interface TRPCQueryOptions {
@@ -131,7 +131,7 @@ export interface TRPCProcedureMeta {
   description?: string;
   tags?: string[];
   deprecated?: boolean;
-  examples?: any[];
+  examples?: unknown[];
   rateLimit?: {
     max: number;
     windowMs: number;

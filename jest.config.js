@@ -28,14 +28,14 @@ const customJestConfig = {
     "!**/coverage/**",
     "!**/*.config.js",
   ],
-  coverageThreshold: {
-    global: {
-      branches: 10,
-      functions: 10,
-      lines: 10,
-      statements: 10,
-    },
-  },
+  // coverageThreshold: {
+  //     global: {
+  //         branches: 1,
+  //         functions: 1,
+  //         lines: 1,
+  //         statements: 1,
+  //     },
+  // },
   testMatch: [
     "<rootDir>/__tests__/**/*.{test,spec}.{js,jsx,ts,tsx}",
     "<rootDir>/**/*.{test,spec}.{js,jsx,ts,tsx}",

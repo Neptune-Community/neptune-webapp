@@ -5,11 +5,11 @@
  * This script creates basic favicon files from the Neptune SVG logo
  */
 
-const fs = require("fs");
-const path = require("path");
+const fs = require("node:fs");
+const path = require("node:path");
 
 // Create a simple 16x16 PNG favicon (base64 encoded minimal PNG)
-const createSimplePNG = (size) => {
+const createSimplePNG = (_size) => {
   // This is a minimal 1x1 transparent PNG in base64
   const base64PNG =
     "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNkYPhfDwAChwGA60e6kgAAAABJRU5ErkJggg==";

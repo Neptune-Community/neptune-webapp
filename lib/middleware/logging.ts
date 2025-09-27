@@ -78,7 +78,7 @@ export function responseLogger(
 export function logApiError(
   error: Error,
   request: NextRequest,
-  context?: Record<string, any>,
+  context?: Record<string, unknown>,
 ) {
   edgeLogger.error("API Error", error, {
     method: request.method,
@@ -108,7 +108,7 @@ function getClientIP(request: NextRequest): string | undefined {
 export function logPerformance(
   operation: string,
   duration: number,
-  metadata?: Record<string, any>,
+  metadata?: Record<string, unknown>,
 ) {
   edgeLogger.info("Performance Metric", {
     operation,

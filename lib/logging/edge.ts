@@ -29,7 +29,7 @@ class EdgeLogger {
     message: string,
     context?: Record<string, unknown>,
   ) {
-    const entry: LogEntry = {
+    const _entry: LogEntry = {
       level,
       message,
       timestamp: new Date().toISOString(),

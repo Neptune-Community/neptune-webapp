@@ -20,7 +20,6 @@ import {
 } from "@/components/ui/typography";
 import { useRoadmapStore } from "@/stores";
 
-
 function RoadmapPage() {
   const { selectedYear, setSelectedYear } = useRoadmapStore();
 

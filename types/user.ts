@@ -70,7 +70,7 @@ export interface UserActivity {
   userId: string;
   type: ActivityType;
   description: string;
-  metadata?: Record<string, any>;
+  metadata?: Record<string, unknown>;
   createdAt: Date;
 }
 
