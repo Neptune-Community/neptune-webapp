@@ -44,6 +44,6 @@ export const config = {
          * - favicon.ico (favicon file)
          * - Static assets (images, fonts, etc.)
          */
-        "/((?!api|_next/static|_next/image|favicon.ico|.*\\.(svg|png|jpg|jpeg|gif|ico|webp|woff|woff2|ttf|eot)).*)",
+        "/((?!api|_next/static|_next/image|favicon.ico).*)",
     ],
 };
