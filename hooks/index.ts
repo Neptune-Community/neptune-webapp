@@ -6,24 +6,22 @@
  *
  * Usage patterns:
  * - Import all hooks: import * as Hooks from "@/hooks";
- * - Import specific hooks: import { useAuth, useTrpc } from "@/hooks";
+ * - Import specific hooks: import { useTrpc, useLocalStorage } from "@/hooks";
  * - Re-export for convenience
  *
  * Example usage:
- * - import { useAuth, useTrpc, useLocalStorage } from "@/hooks";
+ * - import { useTrpc, useLocalStorage } from "@/hooks";
  * - import { useDebounce, useMediaQuery, useTheme } from "@/hooks";
  */
 
-// Authentication hooks
-export { useAuth } from "./use-auth";
 export { useDebounce, useDebouncedCallback } from "./use-debounce";
 
 // Utility hooks
 export { useLocalStorage } from "./use-local-storage";
 export {
-  useBreakpoint,
-  useDeviceCapabilities,
-  useMediaQuery,
+    useBreakpoint,
+    useDeviceCapabilities,
+    useMediaQuery,
 } from "./use-media-query";
 export { useTheme } from "./use-theme";
 // tRPC hooks
