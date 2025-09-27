@@ -20,29 +20,30 @@ import { requestLogger } from "@/lib/middleware/logging";
 import { securityHeaders } from "@/lib/middleware/security";
 
 export function middleware(request: NextRequest) {
-  // Log the request
-  requestLogger(request);
+    // Log the request
+    requestLogger(request);
 
-  // Apply security headers
-  const response = NextResponse.next();
-  securityHeaders(response);
+    // Apply security headers
+    const response = NextResponse.next();
+    securityHeaders(response);
 
-  // Log response
-  // responseLogger(logData, start, response);
+    // Log response
+    // responseLogger(logData, start, response);
 
-  return response;
+    return response;
 }
 
 // Configure which routes the middleware runs on
 export const config = {
-  matcher: [
-    /*
-     * Match all request paths except for the ones starting with:
-     * - api (API routes)
-     * - _next/static (static files)
-     * - _next/image (image optimization files)
-     * - favicon.ico (favicon file)
-     */
-    "/((?!api|_next/static|_next/image|favicon.ico).*)",
-  ],
+    matcher: [
+        /*
+         * Match all request paths except for the ones starting with:
+         * - api (API routes)
+         * - _next/static (static files)
+         * - _next/image (image optimization files)
+         * - favicon.ico (favicon file)
+         * - Static assets (images, fonts, etc.)
+         */
+        "/((?!api|_next/static|_next/image|favicon.ico|.*\\.(svg|png|jpg|jpeg|gif|ico|webp|woff|woff2|ttf|eot)).*)",
+    ],
 };
