@@ -2,7 +2,6 @@
  * Next.js Middleware
  *
  * This middleware runs on every request and handles:
- * - Authentication checks
  * - Request logging
  * - Security headers
  * - Rate limiting
@@ -11,14 +10,12 @@
  * Usage: Automatically runs on all requests matching the config.matcher
  *
  * Example usage patterns:
- * - Protect routes: Check authentication and redirect to login
  * - Log requests: Track API calls and page visits
  * - Set headers: Add security headers to all responses
  * - Rate limiting: Prevent abuse of API endpoints
  */
 
 import { type NextRequest, NextResponse } from "next/server";
-import { authMiddleware } from "@/lib/middleware/auth";
 import { requestLogger } from "@/lib/middleware/logging";
 import { securityHeaders } from "@/lib/middleware/security";
 
@@ -30,15 +27,6 @@ export function middleware(request: NextRequest) {
   const response = NextResponse.next();
   securityHeaders(response);
 
-  // Handle authentication for protected routes
-  const authResult = authMiddleware(request);
-  if (
-    authResult &&
-    typeof authResult === "object" &&
-    "redirect" in authResult
-  ) {
-    return (authResult as any).redirect;
-  }
 
   // Log response
   // responseLogger(logData, start, response);
