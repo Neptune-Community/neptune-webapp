@@ -37,20 +37,8 @@ export const logger = winston.createLogger({
     ],
 });
 
-// Add file transport only in non-serverless environments
+// Disable file transports in production/serverless environments
 // Vercel serverless functions don't support file system writes
-if (process.env.NODE_ENV === "production" && !process.env.VERCEL) {
-    logger.add(
-        new winston.transports.File({
-            filename: "logs/error.log",
-            level: "error",
-        })
-    );
-    logger.add(
-        new winston.transports.File({
-            filename: "logs/combined.log",
-        })
-    );
-}
+// Only use console transport for all environments to avoid ENOENT errors
 
 export default logger;
