@@ -70,7 +70,7 @@ export function Logo({ size = "md", className, showText = true }: LogoProps) {
                 />
             </div>
             {showText && (
-                <span className={cn("font-brand text-foreground", config.text)}>
+                <span className={cn("font-bold text-foreground", config.text)}>
                     Neptune
                 </span>
             )}

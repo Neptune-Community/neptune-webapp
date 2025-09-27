@@ -74,15 +74,7 @@ export default async function Image() {
         ).toString("base64")}`;
     }
 
-    // Load custom font (optional - will fallback to system fonts if not found)
-    let customFont = null;
-    try {
-        customFont = await readFile(
-            join(process.cwd(), "assets/fonts/BauhausBuglerBoldW00-Bold.ttf")
-        );
-    } catch (_error) {
-        // Font not found, will use system fonts
-    }
+    // Use system fonts for better compatibility
 
     return new ImageResponse(
         (
@@ -144,9 +136,8 @@ export default async function Image() {
                                         color: "#ffffff",
                                         margin: "0",
                                         lineHeight: 1,
-                                        fontFamily: customFont
-                                            ? "NeptuneBrand"
-                                            : "system-ui",
+                                        fontFamily:
+                                            "system-ui, -apple-system, sans-serif",
                                     }}
                                 >
                                     Neptune
@@ -157,9 +148,8 @@ export default async function Image() {
                                         color: "#a1a1aa",
                                         margin: "0",
                                         lineHeight: 1,
-                                        fontFamily: customFont
-                                            ? "NeptuneBrand"
-                                            : "system-ui",
+                                        fontFamily:
+                                            "system-ui, -apple-system, sans-serif",
                                     }}
                                 >
                                     community
@@ -175,9 +165,8 @@ export default async function Image() {
                                 fontSize: "64px",
                                 fontWeight: "bold",
                                 color: "#ffffff",
-                                fontFamily: customFont
-                                    ? "NeptuneBrand"
-                                    : "system-ui",
+                                fontFamily:
+                                    "system-ui, -apple-system, sans-serif",
                                 marginBottom: "30px",
                                 textAlign: "center",
                             }}
@@ -245,16 +234,6 @@ export default async function Image() {
         ),
         {
             ...size,
-            fonts: customFont
-                ? [
-                      {
-                          name: "NeptuneBrand",
-                          data: customFont,
-                          style: "normal",
-                          weight: 700,
-                      },
-                  ]
-                : [],
         }
     );
 }
