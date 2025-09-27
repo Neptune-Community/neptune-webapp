@@ -17,75 +17,75 @@
 type LogLevel = "debug" | "info" | "warn" | "error";
 
 interface LogEntry {
-    level: LogLevel;
-    message: string;
-    timestamp: string;
-    context?: Record<string, unknown>;
+  level: LogLevel;
+  message: string;
+  timestamp: string;
+  context?: Record<string, unknown>;
 }
 
 class EdgeLogger {
-    private log(
-        level: LogLevel,
-        message: string,
-        context?: Record<string, unknown>
-    ) {
-        const entry: LogEntry = {
-            level,
-            message,
-            timestamp: new Date().toISOString(),
-            context,
-        };
+  private log(
+    level: LogLevel,
+    message: string,
+    context?: Record<string, unknown>,
+  ) {
+    const entry: LogEntry = {
+      level,
+      message,
+      timestamp: new Date().toISOString(),
+      context,
+    };
 
-        // In development, log to console
-        if (process.env.NODE_ENV === "development") {
-            const logMethod =
-                level === "error"
-                    ? console.error
-                    : level === "warn"
-                    ? console.warn
-                    : level === "debug"
-                    ? console.debug
-                    : console.log;
+    // In development, log to console
+    if (process.env.NODE_ENV === "development") {
+      const logMethod =
+        level === "error"
+          ? console.error
+          : level === "warn"
+            ? console.warn
+            : level === "debug"
+              ? console.debug
+              : console.log;
 
-            logMethod(`[${level.toUpperCase()}] ${message}`, context || "");
-        }
-
-        // In production, you could send to external logging service
-        // For now, we'll just use console in development
+      logMethod(`[${level.toUpperCase()}] ${message}`, context || "");
     }
 
-    debug(message: string, context?: Record<string, unknown>) {
-        this.log("debug", message, context);
-    }
+    // In production, you could send to external logging service
+    // For now, we'll just use console in development
+  }
 
-    info(message: string, context?: Record<string, unknown>) {
-        this.log("info", message, context);
-    }
+  debug(message: string, context?: Record<string, unknown>) {
+    this.log("debug", message, context);
+  }
 
-    warn(message: string, context?: Record<string, unknown>) {
-        this.log("warn", message, context);
-    }
+  info(message: string, context?: Record<string, unknown>) {
+    this.log("info", message, context);
+  }
 
-    error(
-        message: string,
-        error?: Error | unknown,
-        context?: Record<string, unknown>
-    ) {
-        const errorContext = {
-            ...context,
-            ...(error instanceof Error
-                ? {
-                      error: {
-                          name: error.name,
-                          message: error.message,
-                          stack: error.stack,
-                      },
-                  }
-                : { error }),
-        };
+  warn(message: string, context?: Record<string, unknown>) {
+    this.log("warn", message, context);
+  }
 
-        this.log("error", message, errorContext);
-    }
+  error(
+    message: string,
+    error?: Error | unknown,
+    context?: Record<string, unknown>,
+  ) {
+    const errorContext = {
+      ...context,
+      ...(error instanceof Error
+        ? {
+            error: {
+              name: error.name,
+              message: error.message,
+              stack: error.stack,
+            },
+          }
+        : { error }),
+    };
+
+    this.log("error", message, errorContext);
+  }
 }
 
 export const edgeLogger = new EdgeLogger();

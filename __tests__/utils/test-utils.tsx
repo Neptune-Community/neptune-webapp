@@ -4,53 +4,53 @@ import { ThemeProvider } from "next-themes";
 
 // Mock providers for testing
 const AllTheProviders = ({ children }: { children: React.ReactNode }) => {
-    return (
-        <ThemeProvider
-            attribute="class"
-            defaultTheme="light"
-            enableSystem={false}
-            disableTransitionOnChange
-        >
-            {children}
-        </ThemeProvider>
-    );
+  return (
+    <ThemeProvider
+      attribute="class"
+      defaultTheme="light"
+      enableSystem={false}
+      disableTransitionOnChange
+    >
+      {children}
+    </ThemeProvider>
+  );
 };
 
 const customRender = (
-    ui: ReactElement,
-    options?: Omit<RenderOptions, "wrapper">
+  ui: ReactElement,
+  options?: Omit<RenderOptions, "wrapper">,
 ) => render(ui, { wrapper: AllTheProviders, ...options });
 
 // Mock tRPC provider
 export const mockTrpcProvider = (children: React.ReactNode) => {
-    return <div data-testid="trpc-provider">{children}</div>;
+  return <div data-testid="trpc-provider">{children}</div>;
 };
 
 // Test data factories
 export const createMockUser = (overrides = {}) => ({
-    id: "1",
-    email: "test@example.com",
-    name: "Test User",
-    role: "user",
-    ...overrides,
+  id: "1",
+  email: "test@example.com",
+  name: "Test User",
+  role: "user",
+  ...overrides,
 });
 
 export const createMockPost = (overrides = {}) => ({
-    id: "1",
-    title: "Test Post",
-    content: "This is a test post",
-    published: true,
-    createdAt: new Date().toISOString(),
-    ...overrides,
+  id: "1",
+  title: "Test Post",
+  content: "This is a test post",
+  published: true,
+  createdAt: new Date().toISOString(),
+  ...overrides,
 });
 
 // Custom matchers
 export const expectToBeInTheDocument = (element: HTMLElement | null) => {
-    expect(element).toBeInTheDocument();
+  expect(element).toBeInTheDocument();
 };
 
 export const expectToHaveClass = (element: HTMLElement, className: string) => {
-    expect(element).toHaveClass(className);
+  expect(element).toHaveClass(className);
 };
 
 // Re-export everything

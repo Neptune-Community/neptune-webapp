@@ -22,7 +22,7 @@
         "noUnknownAtRules": "off"
       },
       "correctness": {
-        "useImg": "off"
+        "noUnusedVariables": "warn"
       }
     },
     "domains": {

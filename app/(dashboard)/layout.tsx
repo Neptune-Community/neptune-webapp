@@ -9,18 +9,18 @@ import { Header } from "@/components/layout/header";
  * It provides a consistent dashboard experience with sidebar navigation.
  */
 export default function DashboardLayout({ children }: { children: ReactNode }) {
-    return (
-        <div className="min-h-screen bg-background">
-            <div className="flex">
-                {/* Sidebar */}
-                <Sidebar />
+  return (
+    <div className="min-h-screen bg-background">
+      <div className="flex">
+        {/* Sidebar */}
+        <Sidebar />
 
-                {/* Main content area */}
-                <div className="flex-1 flex flex-col">
-                    <Header />
-                    <main className="flex-1 p-6">{children}</main>
-                </div>
-            </div>
+        {/* Main content area */}
+        <div className="flex-1 flex flex-col">
+          <Header />
+          <main className="flex-1 p-6">{children}</main>
         </div>
-    );
+      </div>
+    </div>
+  );
 }

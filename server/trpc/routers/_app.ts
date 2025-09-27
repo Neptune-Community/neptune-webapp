@@ -24,21 +24,21 @@ const t = initTRPC.context<Context>().create();
 
 // Create main app router
 export const appRouter = t.router({
-    // Health check endpoint
-    health: publicProcedure.query(() => {
-        return {
-            status: "healthy",
-            timestamp: new Date().toISOString(),
-        };
-    }),
+  // Health check endpoint
+  health: publicProcedure.query(() => {
+    return {
+      status: "healthy",
+      timestamp: new Date().toISOString(),
+    };
+  }),
 
-    // Market data router
-    market: marketRouter,
+  // Market data router
+  market: marketRouter,
 
-    // Add more routers here as they are created
-    // user: userRouter,
-    // auth: authRouter,
-    // admin: adminRouter,
+  // Add more routers here as they are created
+  // user: userRouter,
+  // auth: authRouter,
+  // admin: adminRouter,
 });
 
 export type AppRouter = typeof appRouter;
