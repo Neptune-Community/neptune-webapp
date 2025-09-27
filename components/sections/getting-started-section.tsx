@@ -208,7 +208,7 @@ export function GettingStartedSection() {
                                 A community-driven wallet solution being
                                 developed by the Neptune community, designed to
                                 provide an open-source alternative with enhanced
-                                privacy features and community governance.
+                                privacy features.
                             </TypographyP>
                             <div className="space-y-2">
                                 <TypographyP className="text-sm">

@@ -20,29 +20,43 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
     title: {
-        default: "My Webapp - Production Ready Next.js Application",
-        template: "%s | My Webapp",
+        default: "Neptune Community - Quantum-Secure Anonymous Cryptocurrency",
+        template: "%s | Neptune Community",
     },
     description:
-        "A production-ready Next.js application with shadcn/ui, tRPC, Zustand, and comprehensive testing",
+        "Join the Neptune Community - supporting Neptune Cash, the first Layer-1 blockchain with zk-STARKs integration and post-quantum security. Anonymous peer-to-peer cryptocurrency with mutator sets and quantum-resistant cryptography.",
     keywords: [
-        "Next.js",
-        "React",
-        "TypeScript",
-        "shadcn/ui",
-        "tRPC",
-        "Zustand",
+        "Neptune Cash",
+        "Neptune cryptocurrency",
+        "quantum secure crypto",
+        "post quantum cryptography",
+        "zk-STARKs blockchain",
+        "anonymous cryptocurrency",
+        "privacy coin",
+        "mutator sets",
+        "quantum resistant",
+        "Layer-1 blockchain",
+        "peer-to-peer cash",
+        "private smart contracts",
+        "defi privacy",
+        "cryptocurrency privacy",
+        "quantum computing threat",
+        "NPT token",
+        "Neptune community",
+        "crypto privacy",
+        "blockchain privacy",
+        "quantum security",
     ],
-    authors: [{ name: "My Webapp Team" }],
-    creator: "My Webapp",
-    publisher: "My Webapp",
+    authors: [{ name: "Neptune Community" }],
+    creator: "Neptune Community",
+    publisher: "Neptune Community",
     formatDetection: {
         email: false,
         address: false,
         telephone: false,
     },
     metadataBase: new URL(
-        process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3000"
+        process.env.NEXT_PUBLIC_BASE_URL || "https://neptune-community.org"
     ),
     alternates: {
         canonical: "/",
@@ -51,17 +65,26 @@ export const metadata: Metadata = {
         type: "website",
         locale: "en_US",
         url: "/",
-        title: "My Webapp - Production Ready Next.js Application",
+        title: "Neptune Community - Quantum-Secure Anonymous Cryptocurrency",
         description:
-            "A production-ready Next.js application with shadcn/ui, tRPC, Zustand, and comprehensive testing",
-        siteName: "My Webapp",
+            "Supporting Neptune Cash - the first Layer-1 blockchain with zk-STARKs integration and post-quantum security. Anonymous peer-to-peer cryptocurrency with mutator sets.",
+        siteName: "Neptune Community",
+        images: [
+            {
+                url: "/opengraph/neptune-community-og.png",
+                width: 1200,
+                height: 630,
+                alt: "Neptune Community - Quantum-Secure Anonymous Cryptocurrency",
+            },
+        ],
     },
     twitter: {
         card: "summary_large_image",
-        title: "My Webapp - Production Ready Next.js Application",
+        title: "Neptune Community - Quantum-Secure Anonymous Cryptocurrency",
         description:
-            "A production-ready Next.js application with shadcn/ui, tRPC, Zustand, and comprehensive testing",
-        creator: "@mywebapp",
+            "Supporting Neptune Cash - the first Layer-1 blockchain with zk-STARKs integration and post-quantum security.",
+        creator: "@neptune_community",
+        images: ["/opengraph/neptune-community-twitter.png"],
     },
     robots: {
         index: true,

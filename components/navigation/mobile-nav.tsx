@@ -1,6 +1,5 @@
 "use client";
 
-import { useState } from "react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Logo } from "@/components/ui/logo";
@@ -10,7 +9,8 @@ import {
     SheetTrigger,
     SheetTitle,
 } from "@/components/ui/sheet";
-import { Menu, FileText, Github } from "lucide-react";
+import { useUIStore } from "@/stores";
+import { Menu, Github } from "lucide-react";
 
 /**
  * Mobile Navigation Component
@@ -19,12 +19,18 @@ import { Menu, FileText, Github } from "lucide-react";
  * Shows the same navigation items as the desktop version but in a mobile-friendly format.
  */
 export function MobileNav() {
-    const [open, setOpen] = useState(false);
+    const { mobileNavOpen, setMobileNavOpen } = useUIStore();
 
-    const navigationItems = [{ name: "Home", href: "/" }];
+    const navigationItems = [
+        { name: "Home", href: "/" },
+        { name: "About", href: "/about" },
+        { name: "Roadmap", href: "/roadmap" },
+        { name: "Documentation", href: "https://docs.neptune.cash/" },
+        { name: "Where to Get Neptune", href: "/exchanges" },
+    ];
 
     return (
-        <Sheet open={open} onOpenChange={setOpen}>
+        <Sheet open={mobileNavOpen} onOpenChange={setMobileNavOpen}>
             <SheetTrigger asChild>
                 <Button variant="ghost" size="icon" className="md:hidden">
                     <Menu className="h-5 w-5" />
@@ -44,7 +50,7 @@ export function MobileNav() {
                                 key={item.name}
                                 href={item.href}
                                 className="flex items-center px-3 py-2 text-sm font-medium rounded-md hover:bg-accent hover:text-accent-foreground transition-colors"
-                                onClick={() => setOpen(false)}
+                                onClick={() => setMobileNavOpen(false)}
                             >
                                 {item.name}
                             </Link>
@@ -52,22 +58,6 @@ export function MobileNav() {
                     </nav>
 
                     <div className="pt-4 border-t space-y-2">
-                        <Button
-                            variant="outline"
-                            size="sm"
-                            asChild
-                            className="w-full"
-                        >
-                            <Link
-                                href="https://docs.neptune.cash/"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="flex items-center gap-2"
-                            >
-                                <FileText className="h-4 w-4" />
-                                Docs
-                            </Link>
-                        </Button>
                         <Button
                             variant="outline"
                             size="sm"

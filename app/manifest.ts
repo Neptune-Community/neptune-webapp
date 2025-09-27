@@ -1,4 +1,4 @@
-import { MetadataRoute } from "next";
+import type { MetadataRoute } from "next";
 
 /**
  * Web App Manifest Generator
@@ -11,27 +11,27 @@ import { MetadataRoute } from "next";
  */
 export default function manifest(): MetadataRoute.Manifest {
     return {
-        name: "My Webapp - Production Ready Next.js Application",
-        short_name: "My Webapp",
+        name: "Neptune Community - Quantum-Secure Anonymous Cryptocurrency",
+        short_name: "Neptune Community",
         description:
-            "A production-ready Next.js application with shadcn/ui, tRPC, and Zustand",
+            "Supporting Neptune Cash - the first Layer-1 blockchain with zk-STARKs integration and post-quantum security",
         start_url: "/",
         display: "standalone",
         background_color: "#0a0a0a",
-        theme_color: "#3b82f6",
+        theme_color: "#1e40af",
         icons: [
             {
-                src: "/icon-192.png",
+                src: "/icons/icon-192.png",
                 sizes: "192x192",
                 type: "image/png",
             },
             {
-                src: "/icon-512.png",
+                src: "/icons/icon-512.png",
                 sizes: "512x512",
                 type: "image/png",
             },
         ],
-        categories: ["productivity", "utilities"],
+        categories: ["finance", "cryptocurrency", "blockchain"],
         lang: "en",
         orientation: "portrait-primary",
     };

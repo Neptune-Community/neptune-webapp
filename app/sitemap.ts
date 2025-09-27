@@ -1,4 +1,4 @@
-import { MetadataRoute } from "next";
+import type { MetadataRoute } from "next";
 
 /**
  * Sitemap Generator
@@ -10,38 +10,45 @@ import { MetadataRoute } from "next";
  * - Can be placed at any route segment level
  */
 export default function sitemap(): MetadataRoute.Sitemap {
-    const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3000";
+    const baseUrl =
+        process.env.NEXT_PUBLIC_BASE_URL || "https://neptune-community.org";
 
     return [
         {
             url: baseUrl,
             lastModified: new Date(),
-            changeFrequency: "yearly",
-            priority: 1,
-        },
-        {
-            url: `${baseUrl}/login`,
-            lastModified: new Date(),
-            changeFrequency: "monthly",
-            priority: 0.8,
-        },
-        {
-            url: `${baseUrl}/register`,
-            lastModified: new Date(),
-            changeFrequency: "monthly",
-            priority: 0.8,
+            changeFrequency: "weekly",
+            priority: 1.0,
         },
         {
             url: `${baseUrl}/about`,
             lastModified: new Date(),
             changeFrequency: "monthly",
-            priority: 0.6,
+            priority: 0.9,
         },
         {
-            url: `${baseUrl}/contact`,
+            url: `${baseUrl}/roadmap`,
+            lastModified: new Date(),
+            changeFrequency: "weekly",
+            priority: 0.9,
+        },
+        {
+            url: `${baseUrl}/exchanges`,
+            lastModified: new Date(),
+            changeFrequency: "daily",
+            priority: 0.8,
+        },
+        {
+            url: `${baseUrl}/login`,
             lastModified: new Date(),
             changeFrequency: "monthly",
-            priority: 0.6,
+            priority: 0.3,
+        },
+        {
+            url: `${baseUrl}/register`,
+            lastModified: new Date(),
+            changeFrequency: "monthly",
+            priority: 0.3,
         },
     ];
 }

@@ -1,5 +1,5 @@
 import NeptunePrice from "@/components/ui/neptune-price";
-import { TypographyP } from "@/components/ui/typography";
+import { TypographyP, TypographySmall } from "@/components/ui/typography";
 
 export default function Notice() {
     return (
@@ -11,9 +11,12 @@ export default function Notice() {
                     </TypographyP>
                     <NeptunePrice
                         showSymbol={false}
-                        showChange={true}
+                        showChange={false}
                         showSource={false}
                     />
+                    <TypographySmall className="text-xs text-muted-foreground">
+                        (via SafeTrade)
+                    </TypographySmall>
                 </div>
             </div>
         </div>

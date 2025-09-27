@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { Logo } from "@/components/ui/logo";
 import { TypographyP, TypographySmall } from "@/components/ui/typography";
+import { DonationDialog } from "@/components/ui/donation-dialog";
 import { Github, Twitter, Linkedin, Mail } from "lucide-react";
 
 export default function Footer() {
@@ -27,42 +28,47 @@ export default function Footer() {
                     </TypographyP>
                 </div>
 
-                {/* Social Links */}
-                <div className="flex justify-center space-x-4 mb-6">
-                    <Link
-                        href="https://github.com"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-muted-foreground hover:text-foreground transition-colors"
-                        aria-label="GitHub"
-                    >
-                        <Github className="h-5 w-5" />
-                    </Link>
-                    <Link
-                        href="https://twitter.com"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-muted-foreground hover:text-foreground transition-colors"
-                        aria-label="Twitter"
-                    >
-                        <Twitter className="h-5 w-5" />
-                    </Link>
-                    <Link
-                        href="https://linkedin.com"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-muted-foreground hover:text-foreground transition-colors"
-                        aria-label="LinkedIn"
-                    >
-                        <Linkedin className="h-5 w-5" />
-                    </Link>
-                    <Link
-                        href="mailto:contact@neptune.com"
-                        className="text-muted-foreground hover:text-foreground transition-colors"
-                        aria-label="Email"
-                    >
-                        <Mail className="h-5 w-5" />
-                    </Link>
+                {/* Social Links and Donation */}
+                <div className="flex flex-col items-center space-y-4 mb-6">
+                    <div className="flex justify-center space-x-4">
+                        <Link
+                            href="https://github.com"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-muted-foreground hover:text-foreground transition-colors"
+                            aria-label="GitHub"
+                        >
+                            <Github className="h-5 w-5" />
+                        </Link>
+                        <Link
+                            href="https://twitter.com"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-muted-foreground hover:text-foreground transition-colors"
+                            aria-label="Twitter"
+                        >
+                            <Twitter className="h-5 w-5" />
+                        </Link>
+                        <Link
+                            href="https://linkedin.com"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-muted-foreground hover:text-foreground transition-colors"
+                            aria-label="LinkedIn"
+                        >
+                            <Linkedin className="h-5 w-5" />
+                        </Link>
+                        <Link
+                            href="mailto:contact@neptune.com"
+                            className="text-muted-foreground hover:text-foreground transition-colors"
+                            aria-label="Email"
+                        >
+                            <Mail className="h-5 w-5" />
+                        </Link>
+                    </div>
+
+                    {/* Donation Dialog */}
+                    <DonationDialog />
                 </div>
 
                 {/* Quick Links */}
@@ -87,12 +93,6 @@ export default function Footer() {
                     >
                         Documentation
                     </Link>
-                    <Link
-                        href="/contact"
-                        className="text-muted-foreground hover:text-foreground transition-colors"
-                    >
-                        Contact
-                    </Link>
                 </div>
 
                 {/* Bottom Section */}
@@ -103,19 +103,7 @@ export default function Footer() {
                             rights reserved.
                         </TypographySmall>
                         <div className="flex items-center space-x-4 text-sm text-muted-foreground">
-                            <span>Built with</span>
-                            <div className="flex items-center space-x-1">
-                                <span className="text-red-500">♥</span>
-                                <span>and</span>
-                                <Link
-                                    href="https://nextjs.org"
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className="hover:text-foreground transition-colors"
-                                >
-                                    Next.js
-                                </Link>
-                            </div>
+                            <span>Designed by neurostr1ke</span>
                         </div>
                     </div>
                 </div>

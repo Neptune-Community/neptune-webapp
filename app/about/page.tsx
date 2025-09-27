@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import {
     TypographyH1,
     TypographyH2,
@@ -14,6 +15,46 @@ import {
 } from "@/components/ui/card";
 import { Logo } from "@/components/ui/logo";
 import { Users, Zap, Globe, Shield, Heart, Target } from "lucide-react";
+
+export const metadata: Metadata = {
+    title: "About Neptune Community - Supporting Quantum-Secure Cryptocurrency",
+    description:
+        "Learn about the Neptune Community - a community-driven initiative supporting Neptune Cash, the first Layer-1 blockchain with zk-STARKs integration and post-quantum security. Discover our mission to expand the ecosystem and spread awareness.",
+    keywords: [
+        "Neptune community",
+        "about Neptune Cash",
+        "quantum secure cryptocurrency community",
+        "Neptune ecosystem",
+        "cryptocurrency community",
+        "blockchain community",
+        "privacy coin community",
+        "quantum resistant crypto",
+        "zk-STARKs community",
+        "anonymous cryptocurrency support",
+        "Neptune Cash supporters",
+        "crypto community initiative",
+    ],
+    openGraph: {
+        title: "About Neptune Community - Supporting Quantum-Secure Cryptocurrency",
+        description:
+            "Learn about the Neptune Community - a community-driven initiative supporting Neptune Cash, the first Layer-1 blockchain with zk-STARKs integration and post-quantum security.",
+        images: [
+            {
+                url: "/opengraph/neptune-about-og.png",
+                width: 1200,
+                height: 630,
+                alt: "About Neptune Community - Supporting Quantum-Secure Cryptocurrency",
+            },
+        ],
+    },
+    twitter: {
+        card: "summary_large_image",
+        title: "About Neptune Community - Supporting Quantum-Secure Cryptocurrency",
+        description:
+            "Learn about the Neptune Community - a community-driven initiative supporting Neptune Cash and quantum-secure cryptocurrency.",
+        images: ["/opengraph/neptune-about-twitter.png"],
+    },
+};
 
 export default function About() {
     const communityValues = [

@@ -22,7 +22,17 @@ export function MainNav() {
         <NavigationMenu>
             <NavigationMenuList>
                 <NavigationMenuItem>
-                    <NavigationMenuTrigger>Home</NavigationMenuTrigger>
+                    <NavigationMenuLink asChild>
+                        <Link
+                            href="/"
+                            className="group inline-flex h-10 w-max items-center justify-center rounded-md px-4 py-2 text-sm font-medium transition-colors hover:bg-accent/50 hover:text-accent-foreground focus:bg-accent/50 focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-accent/30 data-[state=open]:bg-accent/30"
+                        >
+                            Home
+                        </Link>
+                    </NavigationMenuLink>
+                </NavigationMenuItem>
+                <NavigationMenuItem>
+                    <NavigationMenuTrigger>Explore</NavigationMenuTrigger>
                     <NavigationMenuContent>
                         <ul className="grid gap-2 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]">
                             <li className="row-span-3">
@@ -49,24 +59,56 @@ export function MainNav() {
                                     </Link>
                                 </NavigationMenuLink>
                             </li>
-                            <ListItem href="/" title="Home">
-                                Return to the main homepage.
-                            </ListItem>
                             <ListItem href="/about" title="About">
                                 Learn more about our application and team.
+                            </ListItem>
+                            <ListItem href="/roadmap" title="Roadmap">
+                                View our development roadmap and upcoming
+                                features.
+                            </ListItem>
+                            <ListItem
+                                href="https://docs.neptune.cash/"
+                                title="Documentation"
+                            >
+                                Access comprehensive documentation and guides.
                             </ListItem>
                         </ul>
                     </NavigationMenuContent>
                 </NavigationMenuItem>
                 <NavigationMenuItem>
-                    <NavigationMenuLink asChild>
-                        <Link
-                            href="/roadmap"
-                            className="group inline-flex h-10 w-max items-center justify-center rounded-md bg-background px-4 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-accent/50 data-[state=open]:bg-accent/50"
-                        >
-                            Roadmap
-                        </Link>
-                    </NavigationMenuLink>
+                    <NavigationMenuTrigger>Resources</NavigationMenuTrigger>
+                    <NavigationMenuContent>
+                        <ul className="grid w-[400px] gap-2 md:w-[500px] md:grid-cols-2 lg:w-[600px]">
+                            <ListItem
+                                href="/exchanges"
+                                title="Where to Get Neptune"
+                            >
+                                Find exchanges and platforms where you can buy
+                                Neptune tokens.
+                            </ListItem>
+                            <ListItem
+                                href="https://explorer.neptune.cash/"
+                                title="Explorer"
+                            >
+                                Browse the Neptune blockchain and view
+                                transactions, blocks, and addresses.
+                            </ListItem>
+                            <ListItem
+                                href="https://docs.neptune.cash/developers"
+                                title="Build on Neptune"
+                            >
+                                Learn how to build decentralized applications on
+                                the Neptune blockchain.
+                            </ListItem>
+                            <ListItem
+                                href="https://github.com/neptune-community"
+                                title="GitHub"
+                            >
+                                View source code, contribute to development, and
+                                track project progress.
+                            </ListItem>
+                        </ul>
+                    </NavigationMenuContent>
                 </NavigationMenuItem>
             </NavigationMenuList>
         </NavigationMenu>
