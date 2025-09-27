@@ -30,7 +30,7 @@ export const metadata: Metadata = {
             "Supporting Neptune Cash - the first Layer-1 blockchain with zk-STARKs integration and post-quantum security. Anonymous peer-to-peer cryptocurrency with mutator sets.",
         images: [
             {
-                url: "/opengraph/neptune-homepage-og.png",
+                url: "/opengraph-image",
                 width: 1200,
                 height: 630,
                 alt: "Neptune Community Homepage - Quantum-Secure Anonymous Cryptocurrency",
@@ -42,7 +42,7 @@ export const metadata: Metadata = {
         title: "Neptune Community - Quantum-Secure Anonymous Cryptocurrency",
         description:
             "Supporting Neptune Cash - the first Layer-1 blockchain with zk-STARKs integration and post-quantum security.",
-        images: ["/opengraph/neptune-homepage-twitter.png"],
+        images: ["/opengraph-image"],
     },
 };
 

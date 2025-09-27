@@ -40,7 +40,7 @@ export const metadata: Metadata = {
             "Find the best exchanges to buy Neptune (NPT) cryptocurrency. Trade Neptune Cash on SafeTrade and other supported platforms.",
         images: [
             {
-                url: "/opengraph/neptune-exchanges-og.png",
+                url: "/opengraph-image",
                 width: 1200,
                 height: 630,
                 alt: "Where to Buy Neptune (NPT) - Cryptocurrency Exchanges",
@@ -52,7 +52,7 @@ export const metadata: Metadata = {
         title: "Where to Buy Neptune (NPT) - Cryptocurrency Exchanges",
         description:
             "Find the best exchanges to buy Neptune (NPT) cryptocurrency. Trade Neptune Cash on SafeTrade and other supported platforms.",
-        images: ["/opengraph/neptune-exchanges-twitter.png"],
+        images: ["/opengraph-image"],
     },
 };
 

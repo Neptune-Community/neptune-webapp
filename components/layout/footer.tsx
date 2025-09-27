@@ -13,7 +13,7 @@ export default function Footer() {
                     <div className="flex items-center space-x-2">
                         <Logo size="sm" showText={false} />
                         <div className="flex flex-col items-start">
-                            <span className="text-lg font-bold text-foreground leading-none">
+                            <span className="text-lg font-brand text-foreground leading-none">
                                 Neptune
                             </span>
                             <span className="text-xs text-muted-foreground leading-none">

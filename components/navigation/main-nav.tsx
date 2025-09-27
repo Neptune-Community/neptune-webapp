@@ -44,7 +44,7 @@ export function MainNav() {
                                         <div className="flex items-center space-x-2 mt-4 mb-2">
                                             <Logo size="sm" showText={false} />
                                             <div className="flex flex-col items-start">
-                                                <span className="text-lg font-medium leading-none">
+                                                <span className="text-lg font-brand leading-none">
                                                     Neptune
                                                 </span>
                                                 <span className="text-xs text-muted-foreground leading-none">

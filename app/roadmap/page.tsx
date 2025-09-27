@@ -43,7 +43,7 @@ export const metadata: Metadata = {
             "Explore the Neptune Community roadmap featuring upcoming projects including Community Wallet, MCP Server, Browser Extension, I2P Marketplace, and Betting Platform.",
         images: [
             {
-                url: "/opengraph/neptune-roadmap-og.png",
+                url: "/opengraph-image",
                 width: 1200,
                 height: 630,
                 alt: "Neptune Community Roadmap - Development Timeline & Features",
@@ -55,7 +55,7 @@ export const metadata: Metadata = {
         title: "Neptune Community Roadmap - Development Timeline & Features",
         description:
             "Explore the Neptune Community roadmap featuring upcoming projects and development timeline.",
-        images: ["/opengraph/neptune-roadmap-twitter.png"],
+        images: ["/opengraph-image"],
     },
 };
 

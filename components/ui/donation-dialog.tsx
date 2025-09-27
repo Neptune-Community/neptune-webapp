@@ -86,7 +86,7 @@ export function DonationDialog() {
                         </div>
                     </div>
 
-                    <div className="rounded-lg bg-muted/50 p-4 space-y-2">
+                    <div className="rounded-lg bg-primary/2 p-4 space-y-2">
                         <TypographySmall className="font-semibold">
                             How to Donate:
                         </TypographySmall>

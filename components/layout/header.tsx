@@ -14,7 +14,7 @@ export default function Header() {
                     <Link href="/" className="flex items-center space-x-3">
                         <Logo size="md" showText={false} />
                         <div className="flex flex-col items-start">
-                            <span className="text-xl font-bold text-foreground leading-none">
+                            <span className="text-xl font-brand text-foreground leading-none">
                                 Neptune
                             </span>
                             <span className="text-xs text-muted-foreground leading-none">
