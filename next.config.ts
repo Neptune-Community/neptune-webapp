@@ -97,13 +97,7 @@ const nextConfig: NextConfig = {
 
   // Experimental features
   experimental: {
-    // Enable server components logging for security monitoring
-    logging: {
-      level: "verbose",
-      fetches: {
-        fullUrl: true,
-      },
-    },
+    // Add experimental features here if needed
   },
 
   // Redirects for security (remove trailing slashes, enforce HTTPS)

@@ -1,13 +1,13 @@
 "use client";
 
+import { AlertTriangle, Home, RefreshCw } from "lucide-react";
 import { useEffect } from "react";
 import { Button } from "@/components/ui/button";
-import { AlertTriangle, RefreshCw, Home } from "lucide-react";
 import {
   TypographyH2,
+  TypographyMuted,
   TypographyP,
   TypographySmall,
-  TypographyMuted,
 } from "@/components/ui/typography";
 
 interface ErrorPageProps {

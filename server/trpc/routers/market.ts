@@ -6,10 +6,10 @@
  */
 
 import { initTRPC } from "@trpc/server";
-import type { Context } from "@/server/trpc/context";
-import { publicProcedure } from "@/server/trpc/procedures/public";
 import { neptunePriceClient } from "@/lib/api/neptune-price/client";
 import { logger } from "@/lib/logging";
+import type { Context } from "@/server/trpc/context";
+import { publicProcedure } from "@/server/trpc/procedures/public";
 
 // Initialize tRPC
 const t = initTRPC.context<Context>().create();

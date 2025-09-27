@@ -16,10 +16,7 @@
  * - const result: Result = await procedure.query(input);
  */
 
-import type { User } from "./auth";
-
 export interface TRPCContext {
-  user?: User;
   session?: any;
   req: Request;
   res: Response;

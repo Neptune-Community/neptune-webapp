@@ -1,11 +1,7 @@
+import { ExternalLink, Globe, TrendingUp } from "lucide-react";
 import type { Metadata } from "next";
 import Link from "next/link";
-import {
-  TypographyH1,
-  TypographyH2,
-  TypographyP,
-  TypographyLead,
-} from "@/components/ui/typography";
+import { Badge } from "@/components/ui/badge";
 import {
   Card,
   CardContent,
@@ -13,8 +9,12 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
-import { ExternalLink, TrendingUp, Globe } from "lucide-react";
+import {
+  TypographyH1,
+  TypographyH2,
+  TypographyLead,
+  TypographyP,
+} from "@/components/ui/typography";
 
 export const metadata: Metadata = {
   title: "Where to Buy Neptune (NPT) - Cryptocurrency Exchanges",

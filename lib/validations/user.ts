@@ -86,7 +86,15 @@ export const securitySettingsSchema = z.object({
   twoFactorEnabled: z.boolean().default(false),
   loginAlerts: z.boolean().default(true),
   sessionTimeout: z.number().min(5).max(1440).default(60), // 5 minutes to 24 hours
-  allowedIPs: z.array(z.string().ip()).default([]),
+  allowedIPs: z
+    .array(
+      z
+        .string()
+        .regex(
+          /^(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$/,
+        ),
+    )
+    .default([]),
 });
 
 // Account settings schema
@@ -138,13 +146,15 @@ export const userActivitySchema = z.object({
     .string()
     .min(1, "Description is required")
     .max(255, "Description is too long"),
-  metadata: z.record(z.any()).optional(),
+  metadata: z.record(z.string(), z.any()).optional(),
 });
 
 // Avatar upload schema
 export const avatarUploadSchema = z.object({
   file: z
-    .instanceof(File, "File is required")
+    .instanceof(File, {
+      message: "File is required",
+    })
     .refine(
       (file) => file.size <= 5 * 1024 * 1024,
       "File size must be less than 5MB",
@@ -158,7 +168,9 @@ export const avatarUploadSchema = z.object({
 // Cover image upload schema
 export const coverImageUploadSchema = z.object({
   file: z
-    .instanceof(File, "File is required")
+    .instanceof(File, {
+      message: "File is required",
+    })
     .refine(
       (file) => file.size <= 10 * 1024 * 1024,
       "File size must be less than 10MB",

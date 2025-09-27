@@ -27,7 +27,6 @@ export function middleware(request: NextRequest) {
   const response = NextResponse.next();
   securityHeaders(response);
 
-
   // Log response
   // responseLogger(logData, start, response);
 

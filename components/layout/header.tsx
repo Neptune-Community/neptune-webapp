@@ -1,9 +1,9 @@
 import Link from "next/link";
-import { Logo } from "@/components/ui/logo";
+import { ModeToggle } from "@/components/mode-toggle";
 import { MainNav } from "@/components/navigation/main-nav";
 import { MobileNav } from "@/components/navigation/mobile-nav";
-import { ModeToggle } from "@/components/mode-toggle";
 import { DonationDialog } from "@/components/ui/donation-dialog";
+import { Logo } from "@/components/ui/logo";
 
 export default function Header() {
   return (

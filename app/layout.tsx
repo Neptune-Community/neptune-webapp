@@ -1,12 +1,12 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import { ThemeProvider } from "@/components/theme-provider";
-import { TRPCProvider } from "@/lib/trpc/react";
+import Footer from "@/components/layout/footer";
+import Header from "@/components/layout/header";
 
 import Notice from "@/components/layout/notice";
-import Header from "@/components/layout/header";
-import Footer from "@/components/layout/footer";
+import { ThemeProvider } from "@/components/theme-provider";
+import { TRPCProvider } from "@/lib/trpc/react";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -108,7 +108,11 @@ export const metadata: Metadata = {
       { url: "/icons/icon-32x32.png", sizes: "32x32", type: "image/png" },
     ],
     apple: [
-      { url: "/icons/apple-touch-icon.png", sizes: "180x180", type: "image/png" },
+      {
+        url: "/icons/apple-touch-icon.png",
+        sizes: "180x180",
+        type: "image/png",
+      },
     ],
     other: [
       {

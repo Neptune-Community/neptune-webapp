@@ -7,10 +7,10 @@
 
 "use client";
 
-import { useNeptunePrice } from "@/hooks/use-neptune-price";
+import { AlertCircle, TrendingDown, TrendingUp } from "lucide-react";
 import { Skeleton } from "@/components/ui/skeleton";
 import { TypographyP, TypographySmall } from "@/components/ui/typography";
-import { TrendingUp, TrendingDown, AlertCircle } from "lucide-react";
+import { useNeptunePrice } from "@/hooks/use-neptune-price";
 
 interface NeptunePriceProps {
   className?: string;

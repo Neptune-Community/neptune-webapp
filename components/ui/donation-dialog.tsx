@@ -1,5 +1,6 @@
 "use client";
 
+import { Check, Copy, Heart } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
   Dialog,
@@ -13,7 +14,6 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { TypographyP, TypographySmall } from "@/components/ui/typography";
 import { useUIStore } from "@/stores";
-import { Copy, Check, Heart } from "lucide-react";
 
 /**
  * Donation Dialog Component

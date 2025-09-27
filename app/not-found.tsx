@@ -1,6 +1,8 @@
+"use client";
+
+import { ArrowLeft, FileQuestion, Home } from "lucide-react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import { FileQuestion, Home, ArrowLeft } from "lucide-react";
 import {
   TypographyH1,
   TypographyH2,

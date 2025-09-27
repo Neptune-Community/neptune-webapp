@@ -16,9 +16,10 @@
  * - const activity: UserActivity[] = await getUserActivity();
  */
 
-import type { User } from "./auth";
-
-export interface UserProfile extends User {
+export interface UserProfile {
+  id: string;
+  email: string;
+  name: string;
   bio?: string;
   location?: string;
   website?: string;

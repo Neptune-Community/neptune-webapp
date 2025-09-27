@@ -1,4 +1,4 @@
-import { TypographyH2 } from "@/components/ui/typography";
+import { Code, Coins, Cpu, Lock, Shield, Zap } from "lucide-react";
 import {
   Card,
   CardContent,
@@ -6,7 +6,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { Shield, Zap, Lock, Cpu, Code, Coins } from "lucide-react";
+import { TypographyH2 } from "@/components/ui/typography";
 
 /**
  * Features Section Component

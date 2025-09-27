@@ -1,8 +1,8 @@
+import { ExternalLink, FileText } from "lucide-react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import { TypographyH1, TypographyLead } from "@/components/ui/typography";
 import { Logo } from "@/components/ui/logo";
-import { ExternalLink, FileText } from "lucide-react";
+import { TypographyH1, TypographyLead } from "@/components/ui/typography";
 
 /**
  * Hero Section Component

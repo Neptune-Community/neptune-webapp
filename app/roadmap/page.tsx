@@ -1,11 +1,8 @@
-import type { Metadata } from "next";
-import {
-  TypographyH1,
-  TypographyH2,
-  TypographyH3,
-  TypographyP,
-  TypographyLead,
-} from "@/components/ui/typography";
+"use client";
+
+import { Calendar, Code, Shield, Zap } from "lucide-react";
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
 import {
   Card,
   CardContent,
@@ -13,51 +10,16 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
 import { DonationDialog } from "@/components/ui/donation-dialog";
+import {
+  TypographyH1,
+  TypographyH2,
+  TypographyH3,
+  TypographyLead,
+  TypographyP,
+} from "@/components/ui/typography";
 import { useRoadmapStore } from "@/stores";
-import { Shield, Code, Zap, Calendar } from "lucide-react";
 
-export const metadata: Metadata = {
-  title: "Neptune Community Roadmap - Development Timeline & Features",
-  description:
-    "Explore the Neptune Community roadmap featuring upcoming projects including Community Wallet, MCP Server, Browser Extension, I2P Marketplace, and Betting Platform. Track development progress and community initiatives.",
-  keywords: [
-    "Neptune roadmap",
-    "Neptune development timeline",
-    "Neptune community projects",
-    "Neptune wallet development",
-    "Neptune browser extension",
-    "I2P marketplace",
-    "cryptocurrency roadmap",
-    "blockchain development",
-    "Neptune MCP server",
-    "quantum secure crypto roadmap",
-    "privacy coin development",
-    "anonymous cryptocurrency features",
-  ],
-  openGraph: {
-    title: "Neptune Community Roadmap - Development Timeline & Features",
-    description:
-      "Explore the Neptune Community roadmap featuring upcoming projects including Community Wallet, MCP Server, Browser Extension, I2P Marketplace, and Betting Platform.",
-    images: [
-      {
-        url: "/opengraph-image",
-        width: 1200,
-        height: 630,
-        alt: "Neptune Community Roadmap - Development Timeline & Features",
-      },
-    ],
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Neptune Community Roadmap - Development Timeline & Features",
-    description:
-      "Explore the Neptune Community roadmap featuring upcoming projects and development timeline.",
-    images: ["/opengraph-image"],
-  },
-};
 
 function RoadmapPage() {
   const { selectedYear, setSelectedYear } = useRoadmapStore();

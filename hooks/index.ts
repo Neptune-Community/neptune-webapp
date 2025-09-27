@@ -19,9 +19,9 @@ export { useDebounce, useDebouncedCallback } from "./use-debounce";
 // Utility hooks
 export { useLocalStorage } from "./use-local-storage";
 export {
-    useBreakpoint,
-    useDeviceCapabilities,
-    useMediaQuery,
+  useBreakpoint,
+  useDeviceCapabilities,
+  useMediaQuery,
 } from "./use-media-query";
 export { useTheme } from "./use-theme";
 // tRPC hooks

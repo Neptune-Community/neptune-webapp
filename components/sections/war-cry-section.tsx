@@ -1,9 +1,9 @@
 import {
-  TypographyH2,
-  TypographyP,
   TypographyBlockquote,
-  TypographyOrderedList,
+  TypographyH2,
   TypographyListItem,
+  TypographyOrderedList,
+  TypographyP,
 } from "@/components/ui/typography";
 
 /**

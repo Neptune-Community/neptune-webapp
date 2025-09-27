@@ -1,13 +1,13 @@
 "use client";
 
+import { AlertTriangle, RefreshCw } from "lucide-react";
 import { useEffect } from "react";
 import { Button } from "@/components/ui/button";
-import { AlertTriangle, RefreshCw } from "lucide-react";
 import {
   TypographyH1,
+  TypographyMuted,
   TypographyP,
   TypographySmall,
-  TypographyMuted,
 } from "@/components/ui/typography";
 
 interface GlobalErrorProps {

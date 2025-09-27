@@ -98,7 +98,9 @@ export const searchSchema = z.object({
 
 // File upload schema
 export const fileUploadSchema = z.object({
-  file: z.instanceof(File, "File is required"),
+  file: z.instanceof(File, {
+    message: "File is required",
+  }),
   maxSize: z
     .number()
     .optional()
@@ -109,7 +111,9 @@ export const fileUploadSchema = z.object({
 // Image upload schema
 export const imageUploadSchema = z.object({
   file: z
-    .instanceof(File, "File is required")
+    .instanceof(File, {
+      message: "File is required",
+    })
     .refine(
       (file) => file.size <= 10 * 1024 * 1024,
       "File size must be less than 10MB",

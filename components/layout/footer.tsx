@@ -1,8 +1,8 @@
+import { Github, Linkedin, Mail, Twitter } from "lucide-react";
 import Link from "next/link";
+import { DonationDialog } from "@/components/ui/donation-dialog";
 import { Logo } from "@/components/ui/logo";
 import { TypographyP, TypographySmall } from "@/components/ui/typography";
-import { DonationDialog } from "@/components/ui/donation-dialog";
-import { Github, Twitter, Linkedin, Mail } from "lucide-react";
 
 export default function Footer() {
   return (

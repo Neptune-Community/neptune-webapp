@@ -1,14 +1,14 @@
 import Link from "next/link";
-import {
-  TypographyH2,
-  TypographyP,
-  TypographyOrderedList,
-  TypographyListItem,
-  TypographyInlineCode,
-  TypographyBlockquote,
-} from "@/components/ui/typography";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Alert, AlertDescription } from "@/components/ui/alert";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import {
+  TypographyBlockquote,
+  TypographyH2,
+  TypographyInlineCode,
+  TypographyListItem,
+  TypographyOrderedList,
+  TypographyP,
+} from "@/components/ui/typography";
 
 /**
  * Getting Started Section Component

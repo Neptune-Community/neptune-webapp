@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
-import { HeroSection } from "@/components/sections/hero-section";
-import { GettingStartedSection } from "@/components/sections/getting-started-section";
 import { FeaturesSection } from "@/components/sections/features-section";
+import { GettingStartedSection } from "@/components/sections/getting-started-section";
+import { HeroSection } from "@/components/sections/hero-section";
 import { WarCrySection } from "@/components/sections/war-cry-section";
 
 export const metadata: Metadata = {

@@ -1,11 +1,5 @@
+import { Globe, Heart, Shield, Target, Users, Zap } from "lucide-react";
 import type { Metadata } from "next";
-import {
-  TypographyH1,
-  TypographyH2,
-  TypographyH3,
-  TypographyP,
-  TypographyLead,
-} from "@/components/ui/typography";
 import {
   Card,
   CardContent,
@@ -14,7 +8,13 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Logo } from "@/components/ui/logo";
-import { Users, Zap, Globe, Shield, Heart, Target } from "lucide-react";
+import {
+  TypographyH1,
+  TypographyH2,
+  TypographyH3,
+  TypographyLead,
+  TypographyP,
+} from "@/components/ui/typography";
 
 export const metadata: Metadata = {
   title: "About Neptune Community - Supporting Quantum-Secure Cryptocurrency",

@@ -1,6 +1,7 @@
-import React, { ReactElement } from "react";
-import { render, RenderOptions } from "@testing-library/react";
+import { type RenderOptions, render } from "@testing-library/react";
 import { ThemeProvider } from "next-themes";
+import type React from "react";
+import type { ReactElement } from "react";
 
 // Mock providers for testing
 const AllTheProviders = ({ children }: { children: React.ReactNode }) => {
@@ -44,14 +45,14 @@ export const createMockPost = (overrides = {}) => ({
   ...overrides,
 });
 
-// Custom matchers
-export const expectToBeInTheDocument = (element: HTMLElement | null) => {
-  expect(element).toBeInTheDocument();
-};
+// Custom matchers (these are now handled by @testing-library/jest-dom)
+// export const expectToBeInTheDocument = (element: HTMLElement | null) => {
+//   expect(element).toBeInTheDocument();
+// };
 
-export const expectToHaveClass = (element: HTMLElement, className: string) => {
-  expect(element).toHaveClass(className);
-};
+// export const expectToHaveClass = (element: HTMLElement, className: string) => {
+//   expect(element).toHaveClass(className);
+// };
 
 // Re-export everything
 export * from "@testing-library/react";
