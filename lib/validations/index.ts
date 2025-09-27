@@ -15,29 +15,6 @@
  * - import { uuidSchema, slugSchema } from "@/lib/validations";
  */
 
-// Authentication schemas
-export {
-  type ChangePasswordInput,
-  changePasswordSchema,
-  type EmailVerificationInput,
-  emailVerificationSchema,
-  type JWTData,
-  jwtSchema,
-  type LoginInput,
-  loginSchema,
-  type OAuthCallbackInput,
-  oauthCallbackSchema,
-  type PasswordResetInput,
-  type PasswordResetRequestInput,
-  passwordResetRequestSchema,
-  passwordResetSchema,
-  type RegisterInput,
-  registerSchema,
-  type SessionData,
-  sessionSchema,
-  type UpdateProfileInput,
-  updateProfileSchema,
-} from "./auth";
 // Common schemas
 export {
   type Base64,

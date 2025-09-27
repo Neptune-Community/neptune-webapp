@@ -34,22 +34,6 @@ export type {
   SortOptions,
   ValidationError,
 } from "./api";
-// Authentication types
-export type {
-  AuthError,
-  AuthState,
-  EmailVerification,
-  JWT,
-  LoginCredentials,
-  OAuthProvider,
-  PasswordReset,
-  PasswordResetRequest,
-  Permission,
-  RegisterData,
-  Session,
-  User,
-  UserRole,
-} from "./auth";
 // Database types
 export type {
   DatabaseClient,
@@ -160,10 +144,6 @@ export interface AppConfig {
   database: {
     url: string;
     maxConnections: number;
-  };
-  auth: {
-    secret: string;
-    providers: string[];
   };
   logging: {
     level: string;
