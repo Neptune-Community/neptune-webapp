@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
 import { cn } from "@/lib/utils";
@@ -54,7 +53,7 @@ export function Logo({ size = "md", className, showText = true }: LogoProps) {
     return (
         <div className={cn("flex items-center space-x-2", className)}>
             <div className={cn("relative", config.container)}>
-                <Image
+                <img
                     src="/neptune.svg"
                     alt="Neptune Logo"
                     width={size === "sm" ? 24 : size === "md" ? 32 : 40}
@@ -65,8 +64,6 @@ export function Logo({ size = "md", className, showText = true }: LogoProps) {
                         // Apply filter to invert colors in dark mode only after mount
                         isDark && "brightness-0 invert"
                     )}
-                    priority
-                    unoptimized
                 />
             </div>
             {showText && (
