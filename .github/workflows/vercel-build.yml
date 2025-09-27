@@ -76,6 +76,9 @@ jobs:
           curl -f http://localhost:3000/about || exit 1
           curl -f http://localhost:3000/roadmap || exit 1
           curl -f http://localhost:3000/exchanges || exit 1
+          
+          # Test OpenGraph image generation (critical for Vercel)
+          curl -f http://localhost:3000/opengraph-image || exit 1
 
           # Clean up
           kill $SERVER_PID

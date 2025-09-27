@@ -22,9 +22,37 @@ export const size = {
 export const contentType = "image/png";
 
 export default async function Image() {
-  // Load the Neptune logo from public folder
-  const logoData = await readFile(join(process.cwd(), "public/neptune.svg"));
-  const logoSrc = `data:image/svg+xml;base64,${logoData.toString("base64")}`;
+  // Load the Neptune logo from public folder (with error handling)
+  let logoSrc = "";
+  try {
+    // Try multiple possible paths for the logo
+    const possiblePaths = [
+      join(process.cwd(), "public/neptune.svg"),
+      join(process.cwd(), "neptune.svg"),
+      "./public/neptune.svg",
+      "./neptune.svg",
+    ];
+    
+    let logoData = null;
+    for (const path of possiblePaths) {
+      try {
+        logoData = await readFile(path);
+        break;
+      } catch (pathError) {
+        // Try next path
+        continue;
+      }
+    }
+    
+    if (logoData) {
+      logoSrc = `data:image/svg+xml;base64,${logoData.toString("base64")}`;
+    } else {
+      throw new Error("Logo not found in any expected location");
+    }
+  } catch (error) {
+    // Logo not found, will use a fallback or skip logo
+    console.warn("Neptune logo not found, using fallback:", error);
+  }
 
   // Load custom font (optional - will fallback to system fonts if not found)
   let customFont = null;
@@ -59,56 +87,74 @@ export default async function Image() {
           textAlign: "center",
         }}
       >
-        {/* Neptune Logo */}
-        <div
-          style={{
-            display: "flex",
-            alignItems: "center",
-            marginBottom: "30px",
-          }}
-        >
-          <img
-            src={logoSrc}
-            alt="Neptune Logo"
-            width="80"
-            height="80"
-            style={{
-              marginRight: "20px",
-              filter: "brightness(0) invert(1)", // Make logo white
-            }}
-          />
+        {/* Neptune Logo - only render if logo was loaded successfully */}
+        {logoSrc && (
           <div
             style={{
               display: "flex",
-              flexDirection: "column",
-              alignItems: "flex-start",
+              alignItems: "center",
+              marginBottom: "30px",
             }}
           >
-            <h1
+            <img
+              src={logoSrc}
+              alt="Neptune Logo"
+              width="80"
+              height="80"
               style={{
-                fontSize: "64px",
-                fontWeight: "bold",
-                color: "#ffffff",
-                margin: "0",
-                lineHeight: 1,
-                fontFamily: customFont ? "NeptuneBrand" : "system-ui",
+                marginRight: "20px",
+                filter: "brightness(0) invert(1)", // Make logo white
+              }}
+            />
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "flex-start",
               }}
             >
-              Neptune
-            </h1>
-            <p
-              style={{
-                fontSize: "24px",
-                color: "#a1a1aa",
-                margin: "0",
-                lineHeight: 1,
-                fontFamily: customFont ? "NeptuneBrand" : "system-ui",
-              }}
-            >
-              community
-            </p>
+              <h1
+                style={{
+                  fontSize: "64px",
+                  fontWeight: "bold",
+                  color: "#ffffff",
+                  margin: "0",
+                  lineHeight: 1,
+                  fontFamily: customFont ? "NeptuneBrand" : "system-ui",
+                }}
+              >
+                Neptune
+              </h1>
+              <p
+                style={{
+                  fontSize: "24px",
+                  color: "#a1a1aa",
+                  margin: "0",
+                  lineHeight: 1,
+                  fontFamily: customFont ? "NeptuneBrand" : "system-ui",
+                }}
+              >
+                community
+              </p>
+            </div>
           </div>
-        </div>
+        )}
+        
+        {/* Fallback title if no logo */}
+        {!logoSrc && (
+          <div
+            style={{
+              fontSize: "64px",
+              fontWeight: "bold",
+              color: "#ffffff",
+              fontFamily: customFont ? "NeptuneBrand" : "system-ui",
+              marginBottom: "30px",
+              textAlign: "center",
+            }}
+          >
+            Neptune Community
+          </div>
+        )}
 
         <p
           style={{

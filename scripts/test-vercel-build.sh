@@ -134,6 +134,16 @@ for route in "${ROUTES[@]}"; do
     fi
 done
 
+# Test OpenGraph image generation (critical for Vercel)
+echo "Testing OpenGraph image generation..."
+if curl -f -s "http://localhost:3000/opengraph-image" > /dev/null; then
+    print_status "OpenGraph image generation is working"
+else
+    print_error "OpenGraph image generation failed"
+    kill $SERVER_PID 2>/dev/null || true
+    exit 1
+fi
+
 # Clean up
 kill $SERVER_PID 2>/dev/null || true
 print_status "Production server stopped"
